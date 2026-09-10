@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برنامج المرافقة · 30 يوم فالتجارة الإلكترونية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14161c;
+    --bg-alt:#1b1e27;
+    --card:#20242e;
+    --card-border:#2b3040;
+    --ink:#f4f2ec;
+    --muted:#9aa1b3;
+    --gold:#e7b24c;
+    --gold-ink:#1a1406;
+    --teal:#43bfa8;
+    --coral:#e2604f;
+    --r-s:12px;
+    --r-m:20px;
+    --r-l:30px;
+    --font-display:'Cairo', sans-serif;
+    --font-body:'Tajawal', sans-serif;
+    --maxw:680px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:var(--font-display);margin:0;}
+  p{margin:0;}
+  button{font-family:inherit;cursor:pointer;}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+  .section{padding:64px 0;}
+  .alt-bg{background:var(--bg-alt);}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border:none;
+    border-radius:999px;
+    padding:16px 30px;
+    font-size:1.02rem;
+    font-weight:700;
+    font-family:var(--font-display);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--gold-ink);
+    box-shadow:0 8px 24px -8px rgba(231,178,76,.55);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px -8px rgba(231,178,76,.65);}
+  .btn-primary:active{transform:translateY(0);}
+  .btn-block{width:100%;}
+  .btn:focus-visible{outline:3px solid var(--teal);outline-offset:3px;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:76px 0 56px;
+    overflow:hidden;
+    text-align:center;
+  }
+  .hero-pattern{
+    position:absolute;
+    inset:0;
+    opacity:.16;
+    pointer-events:none;
+    background-image:
+      radial-gradient(circle at 20% 20%, transparent 0 9px, var(--teal) 9.5px 10px, transparent 10.5px),
+      radial-gradient(circle at 70% 60%, transparent 0 9px, var(--gold) 9.5px 10px, transparent 10.5px),
+      radial-gradient(circle at 40% 85%, transparent 0 7px, var(--teal) 7.5px 8px, transparent 8.5px);
+    background-size:220px 220px, 260px 260px, 180px 180px;
+    mask-image:linear-gradient(to bottom, black, transparent 90%);
+  }
+  .hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:20px;}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(226,96,79,.14);
+    border:1px solid rgba(226,96,79,.4);
+    color:#ff9c8c;
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:.85rem;
+    font-weight:700;
+  }
+  .badge .dot{
+    width:8px;height:8px;border-radius:50%;background:var(--coral);
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(226,96,79,.55);}
+    50%{box-shadow:0 0 0 6px rgba(226,96,79,0);}
+  }
+  .hero h1{
+    font-size:clamp(1.7rem, 5vw, 2.5rem);
+    font-weight:900;
+    line-height:1.4;
+    max-width:19ch;
+  }
+  .hero .lead{
+    color:var(--muted);
+    font-size:1.05rem;
+    max-width:38ch;
+  }
+  .date-line{font-size:.95rem;color:var(--ink);}
+  .date-line strong{color:var(--gold);}
+
+  /* ---------- quiz ---------- */
+  .quiz-section{padding:20px 0 70px;}
+  .quiz-box{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--r-l);
+    padding:30px 22px;
+  }
+  .progress-track{
+    height:6px;
+    background:#2a2f3c;
+    border-radius:999px;
+    overflow:hidden;
+    margin-bottom:26px;
+  }
+  .progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, var(--teal), var(--gold));
+    border-radius:999px;
+    transition:width .45s ease;
+  }
+  .step-count{font-size:.8rem;color:var(--muted);margin-bottom:8px;}
+  .quiz-step{animation:stepIn .35s ease;}
+  @keyframes stepIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .quiz-step h3{font-size:1.2rem;font-weight:800;margin-bottom:18px;line-height:1.5;}
+  .quiz-input{
+    width:100%;
+    background:var(--bg);
+    border:1px solid var(--card-border);
+    border-radius:var(--r-s);
+    padding:14px 16px;
+    color:var(--ink);
+    font-size:1rem;
+    font-family:var(--font-body);
+  }
+  .quiz-input:focus{outline:2px solid var(--teal);border-color:var(--teal);}
+  .quiz-options{display:flex;flex-direction:column;gap:10px;}
+  .quiz-option{
+    text-align:start;
+    background:var(--bg);
+    border:1px solid var(--card-border);
+    border-radius:var(--r-s);
+    padding:14px 16px;
+    color:var(--ink);
+    font-size:.98rem;
+    font-family:var(--font-body);
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .quiz-option:hover{border-color:var(--teal);}
+  .quiz-option.selected{
+    border-color:var(--gold);
+    background:rgba(231,178,76,.1);
+  }
+  .quiz-next{margin-top:18px;}
+  .quiz-result{text-align:center;padding:8px 0;}
+  .quiz-result p{font-size:1.1rem;font-weight:700;margin-bottom:18px;}
+
+  /* ---------- accordion program cards ---------- */
+  .section > .container > h2{
+    font-size:clamp(1.4rem,4vw,1.9rem);
+    font-weight:900;
+    text-align:center;
+    margin-bottom:30px;
+  }
+  .acc-list{display:flex;flex-direction:column;gap:12px;}
+  .acc-item{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--r-m);
+    overflow:hidden;
+  }
+  .acc-head{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:none;
+    border:none;
+    color:var(--ink);
+    padding:18px 18px;
+    text-align:start;
+  }
+  .acc-icon{font-size:1.4rem;flex-shrink:0;}
+  .acc-title{flex:1;font-family:var(--font-display);font-weight:800;font-size:1.02rem;}
+  .acc-chevron{
+    flex-shrink:0;
+    width:20px;height:20px;
+    transition:transform .25s ease;
+    color:var(--muted);
+  }
+  .acc-item.open .acc-chevron{transform:rotate(180deg);}
+  .acc-panel{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+  }
+  .acc-panel-inner{
+    padding:0 18px 18px 18px;
+    color:var(--muted);
+    font-size:.95rem;
+  }
+  .acc-panel-inner ul{margin:0;padding-inline-start:20px;}
+  .acc-panel-inner li{margin-bottom:4px;}
+
+  /* ---------- timeline ---------- */
+  .timeline{display:flex;flex-direction:column;gap:0;}
+  .tl-item{
+    position:relative;
+    padding-inline-start:34px;
+    padding-bottom:26px;
+  }
+  .tl-item::before{
+    content:"";
+    position:absolute;
+    inset-inline-start:9px;
+    top:6px;
+    bottom:-6px;
+    width:2px;
+    background:var(--card-border);
+  }
+  .tl-item:last-child::before{display:none;}
+  .tl-dot{
+    position:absolute;
+    inset-inline-start:0;
+    top:2px;
+    width:20px;height:20px;
+    border-radius:50%;
+    background:var(--gold);
+    color:var(--gold-ink);
+    display:flex;align-items:center;justify-content:center;
+    font-size:.7rem;font-weight:900;
+    font-family:var(--font-display);
+  }
+  .tl-week{font-size:.8rem;color:var(--teal);font-weight:700;margin-bottom:2px;}
+  .tl-title{font-family:var(--font-display);font-weight:800;font-size:1.05rem;}
+  .timeline-note{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:.95rem;
+    text-align:center;
+    max-width:34ch;
+    margin-inline:auto;
+  }
+
+  /* ---------- mentorship ---------- */
+  .schedule-chips{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+    margin-bottom:26px;
+  }
+  .chip{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:999px;
+    padding:9px 16px;
+    font-size:.88rem;
+    font-weight:700;
+  }
+  .feature-list{
+    list-style:none;
+    margin:0 0 22px 0;
+    padding:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+  .feature-list li{
+    background:var(--bg-alt);
+    border:1px solid var(--card-border);
+    border-radius:var(--r-s);
+    padding:12px 14px;
+    font-size:.88rem;
+  }
+  .emphasis{
+    text-align:center;
+    font-weight:800;
+    font-family:var(--font-display);
+    font-size:1.1rem;
+    color:var(--gold);
+  }
+
+  /* ---------- pricing ---------- */
+  .pricing-grid{display:flex;flex-direction:column;gap:16px;}
+  .price-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--r-l);
+    padding:26px 22px;
+    text-align:center;
+  }
+  .price-card.featured{
+    border-color:var(--teal);
+    box-shadow:0 0 0 1px var(--teal), 0 16px 40px -20px rgba(67,191,168,.5);
+  }
+  .price-card .tag{
+    display:inline-block;
+    font-size:.8rem;
+    font-weight:700;
+    color:var(--teal);
+    margin-bottom:10px;
+  }
+  .price-card .price{
+    font-family:var(--font-display);
+    font-size:2.4rem;
+    font-weight:900;
+    margin-bottom:12px;
+  }
+  .price-card .price small{font-size:1rem;color:var(--muted);font-weight:700;}
+  .price-card p{color:var(--muted);font-size:.92rem;margin-bottom:20px;}
+
+  /* ---------- note box ---------- */
+  .note-box{
+    background:var(--bg-alt);
+    border:1px dashed var(--card-border);
+    border-radius:var(--r-m);
+    padding:6px 20px;
+  }
+  .note-toggle{
+    width:100%;
+    background:none;border:none;
+    color:var(--gold);
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:1.05rem;
+    padding:16px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .note-panel{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+  }
+  .note-panel-inner{padding-bottom:18px;color:var(--muted);font-size:.92rem;display:flex;flex-direction:column;gap:8px;}
+  .note-item.open .note-panel{}
+
+  /* ---------- final cta ---------- */
+  .hero-like{text-align:center;}
+  .hero-like h2{font-size:clamp(1.5rem,4.5vw,2.1rem);font-weight:900;margin-bottom:16px;}
+  .hero-like > .container > p.lead2{color:var(--muted);max-width:38ch;margin:0 auto 24px;}
+  .final-facts{
+    display:flex;flex-direction:column;gap:6px;
+    margin-bottom:26px;
+    font-weight:700;
+    font-size:.95rem;
+  }
+  .fine-print{margin-top:14px;color:var(--muted);font-size:.82rem;}
+
+  /* ---------- reveal wrapper ---------- */
+  #afterQuiz{display:none;}
+  #afterQuiz.show{display:block;animation:revealIn .6s ease;}
+  @keyframes revealIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+  @media (min-width:600px){
+    .pricing-grid{flex-direction:row;}
+    .price-card{flex:1;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="badge"><span class="dot"></span> غير 5 بلايص متاحة</div>
+    <h1>واش باغي تبدا التجارة الإلكترونية… ولكن ماعارفش منين؟</h1>
+    <p class="lead">30 يوم ديال التطبيق والمرافقة باش ماتضيعش الوقت والميزانية فالتجارب العشوائية.</p>
+    <p class="date-line">التسجيل كيبدا نهار <strong>19 شتنبر</strong></p>
+    <button class="btn btn-primary" id="startBtn">نشوف واش مناسب ليا 👇</button>
+  </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section class="quiz-section" id="quiz">
+  <div class="container quiz-box">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div id="quizSteps"></div>
+    <div class="quiz-result" id="quizResult" hidden>
+      <p>مزيان 👌 دابا عرفنا شنو المستوى ديالك.</p>
+      <button class="btn btn-primary" id="revealBtn">شوف البرنامج ديالك 🚀</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVERYTHING AFTER THE QUIZ ============ -->
+<div id="afterQuiz">
+
+  <!-- program cards -->
+  <section class="section" id="program">
+    <div class="container">
+      <h2>شنو غادي تتعلم؟</h2>
+      <div class="acc-list" id="accList">
+
+        <div class="acc-item">
+          <button class="acc-head">
+            <span class="acc-icon">🎯</span>
+            <span class="acc-title">كيفاش تلقى المنتج اللي يستاهل التجربة</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            طرق عملية للبحث على المنتجات وتحليل الطلب والمنافسة قبل ما تصرف فلوسك.
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-head">
+            <span class="acc-icon">🤖</span>
+            <span class="acc-title">كيفاش تستعمل AI</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            غادي تتعلم كيفاش تستعمل أدوات الذكاء الاصطناعي باش تعاونك فـ:
+            <ul>
+              <li>تأكيد الطلبات عبر WhatsApp</li>
+              <li>كتابة الرسائل</li>
+              <li>الرد على الزبناء</li>
+              <li>تسريع بعض المهام اليومية</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-head">
+            <span class="acc-icon">🛒</span>
+            <span class="acc-title">كيفاش تجهز البيع</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            Landing Page + Offer + السعر + Copywriting + COD.
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-head">
+            <span class="acc-icon">📢</span>
+            <span class="acc-title">كيفاش تطلق الإعلانات</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            Campaign + Budget + Creative + قراءة الأرقام ومعرفة شنو خاصو يتبدل.
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-head">
+            <span class="acc-icon">📈</span>
+            <span class="acc-title">كيفاش تحلل وتحسن</span>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            CPM / CTR / CPC / CPA + تحسين الإعلان والعرض، ومعرفة إمتى توقف وإمتى تكمل.
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- timeline -->
+  <section class="section alt-bg" id="timeline">
+    <div class="container">
+      <h2>30 يوم ديال التطبيق</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-dot">1</span>
+          <div class="tl-week">الأسبوع 1 🎯</div>
+          <div class="tl-title">المنتج</div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot">2</span>
+          <div class="tl-week">الأسبوع 2 🛒</div>
+          <div class="tl-title">العرض والبيع</div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot">3</span>
+          <div class="tl-week">الأسبوع 3 📢</div>
+          <div class="tl-title">الإعلانات</div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot">4</span>
+          <div class="tl-week">الأسبوع 4 📈</div>
+          <div class="tl-title">التحليل والتحسين</div>
+        </div>
+      </div>
+      <p class="timeline-note">ماشي غير غادي نشرح ليك… غادي نشوف معاك شنو كتطبق ونعاونك تصلح الأخطاء.</p>
+    </div>
+  </section>
+
+  <!-- mentorship structure -->
+  <section class="section" id="mentorship">
+    <div class="container">
+      <h2>كيفاش غادي تكون المرافقة؟</h2>
+      <div class="schedule-chips">
+        <span class="chip">📅 الخميس + الأحد</span>
+        <span class="chip">🕣 20:30</span>
+        <span class="chip">⏱️ 30 يوم</span>
+        <span class="chip">8 حصص مباشرة</span>
+      </div>
+      <ul class="feature-list">
+        <li>💬 مجموعة WhatsApp خاصة</li>
+        <li>🔎 مراجعة المنتجات</li>
+        <li>📢 مراجعة الإعلانات</li>
+        <li>🤖 تطبيقات AI</li>
+        <li>📁 Templates وملفات جاهزة</li>
+        <li>⚡ Feedback مباشر</li>
+      </ul>
+      <p class="emphasis">الهدف: ماتكونش بوحدك كتجرب وتخمن.</p>
+    </div>
+  </section>
+
+  <!-- pricing -->
+  <section class="section alt-bg" id="pricing">
+    <div class="container">
+      <h2>اختار العرض ديالك</h2>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <span class="tag">باقة البداية</span>
+          <div class="price">600<small> DH</small></div>
+          <p>مناسبة للي باقي غادي يبدأ من الصفر. تشمل المرافقة الأساسية لمدة 30 يوم.</p>
+          <button class="btn btn-primary btn-block" data-package="باقة البداية">بغيت نبدا 🚀</button>
+        </div>
+        <div class="price-card featured">
+          <span class="tag">باقة التطوير</span>
+          <div class="price">1,200<small> DH</small></div>
+          <p>مناسبة للي سبق ليه جرب وباغي يطور النتائج ديالو. مرافقة أكثر تخصيصاً + تحليل الإعلانات والنتائج + تحسين الـOffer + Scaling.</p>
+          <button class="btn btn-primary btn-block" data-package="باقة التطوير">بغيت نطور النتائج 📈</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- why only 5 -->
+  <section class="section" id="why-five">
+    <div class="container">
+      <div class="note-box">
+        <button class="note-toggle" id="noteToggle">
+          <span>علاش غير 5؟</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="note-panel" id="notePanel">
+          <div class="note-panel-inner">
+            <p>حيت ما بغيتش ندير مجموعة كبيرة ونبقى نعطي نفس النصيحة للجميع. بغيت نقدر نركز مع كل شخص ونتابع التطبيق ديالو بشكل جدي.</p>
+            <p>📅 التسجيل: 19 شتنبر</p>
+            <p>👥 العدد: 5 أشخاص فقط</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- final cta -->
+  <section class="section hero-like" id="final-cta">
+    <div class="container">
+      <h2>من التعلم… للتطبيق. 🚀</h2>
+      <p class="lead2">إلى كنت فعلاً باغي تبدأ وتطبق، هادي فرصة باش يكون معاك شخص يوجهك خلال أول 30 يوم.</p>
+      <div class="final-facts">
+        <span>📅 البداية والتسجيل: 19 شتنبر</span>
+        <span>👥 غير 5 أشخاص</span>
+        <span>💰 ابتداءً من 600 DH</span>
+      </div>
+      <button class="btn btn-primary" id="finalCtaBtn">نحجز بلاصتي 🚀</button>
+      <p class="fine-print">البلايص محدودة باش تبقى المرافقة شخصية.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- QUIZ ---------------- */
+  var steps = [
+    { type:'text', key:'name', question:'شنو سميتك؟', placeholder:'الاسم ديالك' },
+    { type:'choice', key:'experience', question:'واش سبق ليك جربتي التجارة الإلكترونية؟', options:[
+      { value:'a', label:'لا، باقي غادي نبدا' },
+      { value:'b', label:'جربت ولكن ماوصلتش لنتيجة' },
+      { value:'c', label:'عندي تجربة وباغي نطورها' }
+    ]},
+    { type:'choice', key:'budget', question:'شحال تقدر تخصص كرأس مال للتجربة؟', options:[
+      { value:'a', label:'أقل من 1,000 DH' },
+      { value:'b', label:'1,000 حتى 3,000 DH' },
+      { value:'c', label:'أكثر من 3,000 DH' }
+    ]},
+    { type:'choice', key:'goal', question:'شنو باغي تحقق؟', options:[
+      { value:'a', label:'نبدا من الصفر' },
+      { value:'b', label:'نلقى منتج رابح' },
+      { value:'c', label:'نحسن الإعلانات ديالي' },
+      { value:'d', label:'نزيد فالمبيعات' }
+    ]}
+  ];
+
+  var answers = {};
+  var current = 0;
+  var stepsEl = document.getElementById('quizSteps');
+  var progressFill = document.getElementById('progressFill');
+  var quizResult = document.getElementById('quizResult');
+
+  function updateProgress(){
+    var pct = (current / steps.length) * 100;
+    progressFill.style.width = pct + '%';
+  }
+
+  function renderStep(){
+    if (current >= steps.length){
+      stepsEl.innerHTML = '';
+      progressFill.style.width = '100%';
+      quizResult.hidden = false;
+      return;
+    }
+    updateProgress();
+    var s = steps[current];
+    var wrap = document.createElement('div');
+    wrap.className = 'quiz-step';
+
+    var h3 = document.createElement('h3');
+    h3.textContent = s.question;
+    wrap.appendChild(h3);
+
+    if (s.type === 'text'){
+      var input = document.createElement('input');
+      input.className = 'quiz-input';
+      input.type = 'text';
+      input.placeholder = s.placeholder;
+      input.value = answers[s.key] || '';
+      wrap.appendChild(input);
+
+      var btn = document.createElement('button');
+      btn.className = 'btn btn-primary quiz-next';
+      btn.textContent = 'التالي';
+      btn.addEventListener('click', function(){ submitText(); });
+      wrap.appendChild(btn);
+
+      input.addEventListener('keydown', function(e){
+        if (e.key === 'Enter') submitText();
+      });
+
+      function submitText(){
+        var v = input.value.trim();
+        if (!v){ input.focus(); input.style.borderColor = 'var(--coral)'; return; }
+        answers[s.key] = v;
+        current++;
+        renderStep();
+      }
+
+      setTimeout(function(){ input.focus(); }, 50);
+
+    } else {
+      var opts = document.createElement('div');
+      opts.className = 'quiz-options';
+      s.options.forEach(function(o){
+        var ob = document.createElement('button');
+        ob.className = 'quiz-option';
+        ob.type = 'button';
+        ob.textContent = o.label;
+        ob.addEventListener('click', function(){
+          answers[s.key] = o.value;
+          ob.classList.add('selected');
+          setTimeout(function(){
+            current++;
+            renderStep();
+          }, 320);
+        });
+        opts.appendChild(ob);
+      });
+      wrap.appendChild(opts);
+    }
+
+    stepsEl.innerHTML = '';
+    stepsEl.appendChild(wrap);
+  }
+
+  renderStep();
+
+  document.getElementById('revealBtn').addEventListener('click', function(){
+    var after = document.getElementById('afterQuiz');
+    after.classList.add('show');
+    setTimeout(function(){
+      after.scrollIntoView({ behavior:'smooth', block:'start' });
+    }, 80);
+  });
+
+  document.getElementById('startBtn').addEventListener('click', function(){
+    document.getElementById('quiz').scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+
+  document.getElementById('finalCtaBtn').addEventListener('click', function(){
+    document.getElementById('pricing').scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+
+  /* ---------------- ACCORDION (program cards) ---------------- */
+  document.querySelectorAll('#accList .acc-item').forEach(function(item){
+    var head = item.querySelector('.acc-head');
+    var panel = item.querySelector('.acc-panel');
+    head.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('#accList .acc-item.open').forEach(function(o){
+        if (o !== item){
+          o.classList.remove('open');
+          o.querySelector('.acc-panel').style.maxHeight = null;
+        }
+      });
+      if (isOpen){
+        item.classList.remove('open');
+        panel.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ---------------- "why only 5" note toggle ---------------- */
+  var noteToggle = document.getElementById('noteToggle');
+  var notePanel = document.getElementById('notePanel');
+  noteToggle.addEventListener('click', function(){
+    var open = notePanel.style.maxHeight;
+    if (open){
+      notePanel.style.maxHeight = null;
+    } else {
+      notePanel.style.maxHeight = notePanel.scrollHeight + 'px';
+    }
+  });
+
+  /* ---------------- WhatsApp handoff ---------------- */
+  var expMap = { a:'لا، باقي غادي نبدا', b:'جربت ولكن ماوصلتش لنتيجة', c:'عندي تجربة وباغي نطورها' };
+  var budgetMap = { a:'أقل من 1,000 DH', b:'1,000 حتى 3,000 DH', c:'أكثر من 3,000 DH' };
+  var goalMap = { a:'نبدا من الصفر', b:'نلقى منتج رابح', c:'نحسن الإعلانات ديالي', d:'نزيد فالمبيعات' };
+
+  function openWhatsApp(packageName){
+    var name = answers.name || '';
+    var msg = 'السلام عليكم، أنا ' + name + '.\n' +
+      'سبق ليا ' + (expMap[answers.experience] || '') + '.\n' +
+      'رأس المال اللي نقدر نخصص هو ' + (budgetMap[answers.budget] || '') + '.\n' +
+      'الهدف ديالي هو ' + (goalMap[answers.goal] || '') + '.\n' +
+      'وبغيت نسجل فـ' + packageName + '.\n\n' +
+      'بغيت نكمل التسجيل.';
+    var url = 'https://wa.me/212621820506?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank');
+  }
+
+  document.querySelectorAll('[data-package]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openWhatsApp(btn.getAttribute('data-package'));
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
