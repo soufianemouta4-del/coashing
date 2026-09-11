@@ -540,7 +540,7 @@
     <div class="container">
       <h2>اختار العرض ديالك</h2>
       <div class="pricing-grid">
-        <div class="price-card">
+        <div class="price-card featured">
           <span class="tag">باقة البداية</span>
           <div class="price">600<small> DH</small></div>
           <p>مناسبة للي باقي غادي يبدأ من الصفر. تشمل المرافقة الأساسية لمدة 30 يوم.</p>
@@ -600,7 +600,7 @@
   var steps = [
     { type:'text', key:'name', question:'شنو سميتك؟', placeholder:'الاسم ديالك' },
     { type:'choice', key:'experience', question:'واش سبق ليك جربتي التجارة الإلكترونية؟', options:[
-      { value:'a', label:'لا، باقي غادي نبدا' },
+      { value:'a', label:' عاد غادي نبدا' },
       { value:'b', label:'جربت ولكن ماوصلتش لنتيجة' },
       { value:'c', label:'عندي تجربة وباغي نطورها' }
     ]},
@@ -750,14 +750,14 @@
   });
 
   /* ---------------- WhatsApp handoff ---------------- */
-  var expMap = { a:'لا، باقي غادي نبدا', b:'جربت ولكن ماوصلتش لنتيجة', c:'عندي تجربة وباغي نطورها' };
+  var expMap = { a:'عاد غادي نبدا ', b:'جربت ولكن ماوصلتش لنتيجة', c:'عندي تجربة وباغي نطورها' };
   var budgetMap = { a:'أقل من 1,000 DH', b:'1,000 حتى 3,000 DH', c:'أكثر من 3,000 DH' };
   var goalMap = { a:'نبدا من الصفر', b:'نلقى منتج رابح', c:'نحسن الإعلانات ديالي', d:'نزيد فالمبيعات' };
 
   function openWhatsApp(packageName){
     var name = answers.name || '';
     var msg = 'السلام عليكم، أنا ' + name + '.\n' +
-      'سبق ليا ' + (expMap[answers.experience] || '') + '.\n' +
+      '  ' + (expMap[answers.experience] || '') + '.\n' +
       'رأس المال اللي نقدر نخصص هو ' + (budgetMap[answers.budget] || '') + '.\n' +
       'الهدف ديالي هو ' + (goalMap[answers.goal] || '') + '.\n' +
       'وبغيت نسجل فـ' + packageName + '.\n\n' +
