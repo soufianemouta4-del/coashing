@@ -83,10 +83,35 @@ footer b{color:var(--ac);letter-spacing:2px}
 @keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
 .mb dl{margin:16px 0}.mb dt{color:var(--mu);font-size:.85rem}.mb dd{margin:0 0 10px;font-weight:800;font-size:1.1rem}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.st{opacity:1;transform:none}}
+
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 59, 48, 0.3),
+                0 0 15px rgba(255, 59, 48, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 138, 31, 0.8),
+                0 0 35px rgba(255, 138, 31, 0.9),
+                0 0 55px rgba(255, 176, 46, 0.5);
+  }
+}
+
 </style>
 </head>
 <body>
-
+  ```html
+  <div style="position:fixed;top:10px;left:10px;right:10px;z-index:9999;text-align:center;padding:12px;border-radius:12px;background:#ff5a36;color:white;font-weight:900;box-shadow:0 0 15px #ff5a36;animation:glow 1.5s infinite alternate">
+  ⏳ التسجيل غادي يتوقف نهار الخميس 15 أكتوبر!
+  </div>
+  
+  <style>
+  @keyframes glow {
+    from { box-shadow: 0 0 8px #ff5a36; }
+    to { box-shadow: 0 0 25px #ff8a1f; }
+  }
+  </style>
+  ```
 <main id="quiz" aria-live="polite"><div class="qbox glass" id="qbox"></div></main>
 
 <div id="site">
@@ -106,10 +131,10 @@ footer b{color:var(--ac);letter-spacing:2px}
 <button class="btn ghost block" style="border-color:var(--mu)" data-pick="pro">نختار باقة 199 درهم</button></article>
 
 <article class="card glass hot"><span class="badge">🔥 5 مقاعد فقط</span><h3>COD ACADEMY — COACHING</h3>
-<div class="price">449 <small>درهم / الشهر</small></div>
+<div class="price">699 <small>درهم / الشهر</small></div>
 <p style="color:var(--mu)">مواكبة مكثفة للناس اللي باغين يبداو من الصفر ويتعلمو التجارة الإلكترونية خطوة بخطوة حتى الاحتراف.</p>
 <ul class="ft" data-f="coach"></ul>
-<button class="btn block" data-pick="coach">نحجز مقعدي بـ449 درهم</button></article>
+<button class="btn block" data-pick="coach">نحجز مقعدي 699 درهم</button></article>
 
 <article class="card glass" style="border-color:var(--ac2)"><span class="badge" style="background:rgba(255,194,74,.15);color:var(--ac2)">⚡ مقعد واحد فقط في كل مرة</span><h3>مواكبة فردية — 7 أيام</h3>
 <div class="price" style="color:var(--ac2)">1,449 <small>درهم</small></div>
@@ -156,7 +181,7 @@ footer b{color:var(--ac);letter-spacing:2px}
 <h2>واش واجد تبدا؟ 🚀</h2>
 <p class="sub">ما تبقاش غير كتقلب على المعلومات… بدا تتعلم، طبق، وحسن النتائج ديالك.</p>
 <button class="btn ghost" data-pick="pro">ابدأ بـ199 درهم</button>
-<button class="btn" data-pick="coach">احجز مقعدك بـ449 درهم</button>
+<button class="btn" data-pick="coach">احجز مقعدك 699 درهم</button>
 <button class="btn ghost" data-pick="solo">مواكبة فردية 7 أيام — 1,449 درهم</button></div></div></section>
 
 <footer><b>COD ACADEMY</b><p>تعلم. طبق. حسن. Scale.</p><p dir="ltr">WhatsApp: 0621820506</p><p>Copyright © 2026 COD Academy</p></footer>
@@ -174,7 +199,7 @@ footer b{color:var(--ac);letter-spacing:2px}
 var NUM="212621820506";
 var PK={pro:{n:"COD Academy PRO",p:"199 درهم / الشهر",x:""},
 solo:{n:"مواكبة فردية لمدة 7 أيام",p:"1,449 درهم",x:"\n\nبغيت نعرف واش المقعد متوفر حالياً."},
-coach:{n:"COD Academy COACHING",p:"449 درهم / الشهر",x:"\n\nبغيت نحجز مقعد من المقاعد الخمسة."}};
+coach:{n:"COD Academy COACHING",p:"699 درهم / الشهر",x:"\n\nبغيت نحجز مقعد من المقاعد الخمسة."}};
 var F={solo:["مواكبة فردية لمدة 7 أيام","جلسة فردية 1:1","تحديد المسار الصحيح من البداية","خطة عمل مخصصة حسب وضعك","توجيه خطوة بخطوة","الهدف: الوصول لأول طلبات في أقصر وقت ممكن"],pro:["دخول للمجموعة الخاصة لمدة شهر","كل شهر منتجات مربحة يتم اقتراحها للمجموعة","تحليل فرص المنتجات","فيديوهات جاهزة للإعلانات","أفكار Creatives للإعلانات","تحديد الجمهور المستهدف بدقة","استراتيجيات إطلاق الحملات","مواكبة في الخاص","مساعدة في تحسين النتائج","محتوى وتحديثات جديدة باستمرار"],
 coach:["جوج حصص مباشرة كل أسبوع عبر Google Meet","البداية من الصفر","تعلم اختيار المنتجات","البحث عن منتجات قليلة المنافسة","تحليل السوق والطلب","اختيار المنتجات ذات فرص الربح","بناء العرض التسويقي","إنشاء الإعلانات","صناعة Creatives فعالة","تحديد الجمهور المستهدف","إطلاق أول الحملات","تحليل CPM / CTR / CPC / CPA","تحسين الحملات","تعلم Scaling","تعلم كيفاش تزيد الميزانية بشكل تدريجي بناءً على النتائج","تعلم الانتقال من حملات صغيرة إلى حملات أكبر","استراتيجيات للوصول إلى أكثر من 10 طلبيات يومياً عندما تسمح النتائج والمنتج والسوق والميزانية","تعلم متى تزيد الميزانية ومتى توقف الحملة","مواكبة فردية","تصحيح الأخطاء","أسئلة وأجوبة مباشرة","متابعة تقدم كل متدرب"]};
 var STEPS=["اختيار المنتج","تحليل السوق","بناء العرض","إنشاء المحتوى","إطلاق الإعلانات","تحليل النتائج","تحسين الحملات","Scaling","بناء نظام مستمر للطلبات"];
