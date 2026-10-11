@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>COD Academy | تعلم التجارة الإلكترونية بالمغرب</title>
-<meta name="description" content="COD Academy منصة Coaching لتعلم التجارة الإلكترونية، اختيار المنتجات، الإعلانات، تحليل النتائج وScaling بطريقة عملية.">
+<meta name="description" content="COD Academy: مجموعة خاصة على واتساب + حصتين مباشرتين كل أسبوع لتعلم التجارة الإلكترونية، الإعلانات، تحليل النتائج وScaling.">
 <meta property="og:title" content="COD Academy | تعلم التجارة الإلكترونية بالمغرب">
-<meta property="og:description" content="Coaching عملي: من أول منتج حتى الـScaling.">
+<meta property="og:description" content="مجموعة واتساب خاصة + حصتين مباشرتين كل أسبوع: من أول منتج حتى الـScaling.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="COD Academy">
@@ -26,9 +26,11 @@ h2{font-size:clamp(1.5rem,5vw,2.3rem);font-weight:900;text-align:center;margin-b
 .glass{background:var(--card);border:1px solid var(--bd);border-radius:20px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:1.05rem;color:#1c0f00;background:linear-gradient(135deg,var(--c1),var(--c2));padding:14px 26px;border-radius:14px;text-decoration:none;transition:transform .15s,box-shadow .2s;box-shadow:0 8px 28px rgba(255,138,31,.35)}
 .btn:hover{transform:translateY(-2px) scale(1.02)}.btn:active{transform:scale(.96)}
-.btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--bd);box-shadow:none}
 .btn.block{display:block;width:100%;text-align:center}
 :focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+/* deadline banner */
+#deadline{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));left:10px;right:10px;z-index:9999;text-align:center;padding:12px;border-radius:12px;background:#ff5a36;color:#fff;font-weight:900;animation:glow 1.5s infinite alternate}
+@keyframes glow{from{box-shadow:0 0 8px #ff5a36}to{box-shadow:0 0 25px #ff8a1f}}
 /* quiz */
 #quiz{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px 16px}
 .qbox{width:100%;max-width:560px;padding:28px 22px;animation:up .5s both}
@@ -45,147 +47,88 @@ h2{font-size:clamp(1.5rem,5vw,2.3rem);font-weight:900;text-align:center;margin-b
 @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 #site{display:none}
 /* hero */
-.hero{text-align:center;padding-top:44px}
+.hero{text-align:center;padding-top:70px}
 .hero h2{font-size:clamp(1.6rem,6vw,2.6rem)}
 .tag{display:inline-block;background:rgba(255,194,74,.12);color:var(--ac2);border:1px solid rgba(255,194,74,.35);padding:3px 14px;border-radius:99px;font-size:.85rem;font-weight:800}
-/* packages */
-.pk{display:grid;gap:18px;grid-template-columns:1fr}
-@media(min-width:800px){.pk,.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}}
-.card{padding:26px 22px;position:relative;transition:transform .25s,border-color .25s}
-.card:hover{transform:translateY(-4px);border-color:rgba(90,169,255,.55)}
-.card.hot{border:1.5px solid var(--ac);box-shadow:0 0 50px rgba(90,169,255,.22)}
-.card h3{font-size:1.3rem;font-weight:900}
-.price{font-size:2.6rem;font-weight:900;color:var(--ac);margin:6px 0}.price small{font-size:1rem;color:var(--mu);font-weight:600}
-.badge{display:inline-block;background:var(--bd);padding:2px 12px;border-radius:99px;font-size:.8rem;margin-bottom:8px}
-.hot .badge{background:linear-gradient(135deg,#ff5a36,#ffb400);color:#111;font-weight:900;font-size:.95rem}
-ul.ft{list-style:none;padding:0;margin:16px 0 22px;display:grid;gap:5px;font-size:.95rem}
+/* package */
+.pkg{max-width:560px;margin:auto;padding:30px 24px;border:1.5px solid var(--ac);box-shadow:0 0 50px rgba(90,169,255,.22)}
+.pkg h3{font-size:1.4rem;font-weight:900}
+.price{font-size:3rem;font-weight:900;color:var(--ac);margin:6px 0}.price small{font-size:1rem;color:var(--mu);font-weight:600}
+.badge{display:inline-block;background:linear-gradient(135deg,#ff5a36,#ffb400);color:#111;font-weight:900;font-size:.95rem;padding:2px 14px;border-radius:99px;margin-bottom:8px}
+ul.ft{list-style:none;padding:0;margin:18px 0 24px;display:grid;gap:6px;font-size:.95rem}
 ul.ft li:before{content:"✓ ";color:var(--ok);font-weight:900}
-.note{padding:22px;margin-top:22px;text-align:center}
+.note{padding:22px;margin:22px auto 0;max-width:560px;text-align:center}
 .note b{color:var(--ac2)}.note small{display:block;color:var(--mu);margin-top:8px}
-/* compare */
-.cmp td,.cmp th{padding:10px 12px;text-align:start;vertical-align:top}
 /* timeline */
 .tl{display:grid;gap:10px;max-width:560px;margin:auto}
 .st{display:flex;gap:14px;align-items:center;padding:14px 18px;opacity:0;transform:translateY(20px);transition:.6s}
 .st.on{opacity:1;transform:none}
 .st b{color:var(--ac);font-size:1.3rem;min-width:34px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
 .c{text-align:center;padding:22px 16px}.c span{font-size:1.9rem;display:block}.c p{color:var(--mu);font-size:.92rem}
-.seat{font-size:3.4rem;font-weight:900;color:var(--ac2);text-align:center}
 details{padding:14px 18px;margin-top:10px}summary{cursor:pointer;font-weight:800}details p{color:var(--mu);margin-top:8px}
 footer{text-align:center;color:var(--mu);padding:36px 16px 90px;border-top:1px solid var(--bd)}
 footer b{color:var(--ac);letter-spacing:2px}
 /* sticky + modal */
 #sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(10,18,38,.95);backdrop-filter:blur(10px);z-index:20;display:none}
 @media(max-width:799px){#sticky.show{display:block}}
-#modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
+#modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:16px;z-index:10000}
 #modal.open{display:flex}
 .mb{background:#0d1830;border:1px solid var(--bd);border-radius:22px;padding:26px;max-width:420px;width:100%;animation:pop .3s both}
 @keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
 .mb dl{margin:16px 0}.mb dt{color:var(--mu);font-size:.85rem}.mb dd{margin:0 0 10px;font-weight:800;font-size:1.1rem}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.st{opacity:1;transform:none}}
-
-
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(255, 59, 48, 0.3),
-                0 0 15px rgba(255, 59, 48, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 15px rgba(255, 138, 31, 0.8),
-                0 0 35px rgba(255, 138, 31, 0.9),
-                0 0 55px rgba(255, 176, 46, 0.5);
-  }
-}
-
 </style>
 </head>
 <body>
-  ```html
-  <div style="position:fixed;top:10px;left:10px;right:10px;z-index:9999;text-align:center;padding:12px;border-radius:12px;background:#ff5a36;color:white;font-weight:900;box-shadow:0 0 15px #ff5a36;animation:glow 1.5s infinite alternate">
-  ⏳ التسجيل غادي يتوقف نهار الخميس 15 أكتوبر!
-  </div>
-  
-  <style>
-  @keyframes glow {
-    from { box-shadow: 0 0 8px #ff5a36; }
-    to { box-shadow: 0 0 25px #ff8a1f; }
-  }
-  </style>
-  ```
+<div id="deadline">⏳ التسجيل غادي يتوقف نهار الخميس 15 أكتوبر!</div>
+
 <main id="quiz" aria-live="polite"><div class="qbox glass" id="qbox"></div></main>
 
 <div id="site">
 <section class="hero"><div class="wrap fade">
-<span class="tag" id="rtag">نتيجتك جاهزة</span>
+<span class="tag">نتيجتك جاهزة</span>
 <h2 id="rtitle" style="margin-top:14px"></h2>
 <p class="sub" id="rtext" style="max-width:620px;margin:10px auto 0"></p>
-<p style="margin-top:14px;font-weight:800">دابا عندك ثلاث طرق باش تبدا مع COD Academy 👇</p>
+<p style="margin-top:14px;font-weight:800">هادي هي الباقة اللي غادي تبدا بها مع COD Academy 👇</p>
 </div></section>
 
 <section id="packs" style="padding-top:10px"><div class="wrap">
-<div class="pk g3">
-<article class="card glass"><span class="badge">للمبتدئين والممارسين</span><h3>COD ACADEMY — PRO</h3>
-<div class="price">199 <small>درهم / الشهر</small></div>
-<p style="color:var(--mu)">للناس اللي باغين يدخلوا لمجموعة خاصة، يستافدو من المنتجات والاستراتيجيات الجديدة، ويطبقو باستمرار مع المواكبة.</p>
-<ul class="ft" data-f="pro"></ul>
-<button class="btn ghost block" style="border-color:var(--mu)" data-pick="pro">نختار باقة 199 درهم</button></article>
-
-<article class="card glass hot"><span class="badge">🔥 5 مقاعد فقط</span><h3>COD ACADEMY — COACHING</h3>
-<div class="price">699 <small>درهم / الشهر</small></div>
-<p style="color:var(--mu)">مواكبة مكثفة للناس اللي باغين يبداو من الصفر ويتعلمو التجارة الإلكترونية خطوة بخطوة حتى الاحتراف.</p>
-<ul class="ft" data-f="coach"></ul>
-<button class="btn block" data-pick="coach">نحجز مقعدي 699 درهم</button></article>
-
-<article class="card glass" style="border-color:var(--ac2)"><span class="badge" style="background:rgba(255,194,74,.15);color:var(--ac2)">⚡ مقعد واحد فقط في كل مرة</span><h3>مواكبة فردية — 7 أيام</h3>
-<div class="price" style="color:var(--ac2)">1,449 <small>درهم</small></div>
-<p style="color:var(--mu)">الهدف: الوصول لأول طلبات في أقصر وقت ممكن، مع مواكبة 1:1 مركزة لمدة 7 أيام (حسب المنتج والسوق والميزانية).</p>
-<ul class="ft" data-f="solo"></ul>
-<button class="btn block" data-pick="solo">نحجز المقعد بـ1,449 درهم</button></article>
-</div>
+<article class="pkg glass"><span class="badge">🔥 المجموعة الجديدة على واتساب</span>
+<h3>COD ACADEMY — الباقة الكاملة</h3>
+<div class="price">449 <small>درهم / الشهر</small></div>
+<p style="color:var(--mu)">دخول للمجموعة الجديدة على واتساب + حصتين مباشرتين كل أسبوع باش تتعلم التجارة الإلكترونية خطوة بخطوة وتطبق على منتجات وحملات حقيقية.</p>
+<ul class="ft" id="ft"></ul>
+<button class="btn block" data-pick="1">نسجل دابا — 449 درهم</button></article>
 <div class="note glass"><p style="font-weight:800">الهدف ماشي نبيعوك حلم.</p>
 <p>الهدف هو أنك تتعلم الطريقة: <b>اختيار المنتج → الإعلانات → تحليل النتائج → التحسين → Scaling.</b></p>
 <small>الوصول لأكثر من 10 طلبيات يومياً هو هدف تدريبي ممكن حسب المنتج والسوق والميزانية وجودة التنفيذ، وليس ضماناً لنتيجة ثابتة.</small></div>
 </div></section>
 
-<section><div class="wrap"><h2>PRO ولا COACHING؟</h2><p class="sub">قارن وختار اللي كيناسب وضعك</p>
-<div class="pk g3">
-<div class="card glass"><h3>PRO — 199 DH</h3><ul class="ft"><li>مجموعة خاصة</li><li>منتجات شهرية</li><li>فيديوهات إعلانية</li><li>استهداف الجمهور</li><li>مواكبة في الخاص</li><li>تحديثات مستمرة</li></ul></div>
-<div class="card glass hot"><h3>COACHING — 699 DH</h3><ul class="ft"><li>كل ما يوجد في PRO</li><li>جوج حصص مباشرة أسبوعياً</li><li>Google Meet</li><li>البداية من 0</li><li>مواكبة فردية</li><li>تحليل الحملات</li><li>تعلم Scaling واستراتيجيات التوسع</li><li>هدف تدريبي +10 طلبيات يومياً حسب النتائج</li><li>5 مقاعد فقط</li></ul></div>
-<div class="card glass" style="border-color:var(--ac2)"><h3>فردي 7 أيام — 1,449 DH</h3><ul class="ft"><li>جلسة فردية 1:1</li><li>تحديد المسار من البداية</li><li>خطة عمل مخصصة</li><li>توجيه خطوة بخطوة</li><li>هدف: أول طلبات في أقصر وقت</li><li>مقعد واحد فقط في كل مرة</li></ul></div>
-</div></div></section>
-
 <section><div class="wrap"><h2>من أول منتج حتى الـScaling 🚀</h2><p class="sub">خريطة الطريق ديالك</p>
 <div class="tl" id="tl"></div></div></section>
 
 <section><div class="wrap"><h2>ماشي غير فيديوهات… غادي تطبق.</h2>
-<p class="sub">الفرق بين أنك تشوف دورة وأنك تدخل Coaching هو أنك ما كتبقاش بوحدك.</p>
-<div class="pk g3" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-<div class="card glass c"><span>📚</span><h3>تعلم</h3><p>تعلم الاستراتيجيات بطريقة منظمة.</p></div>
-<div class="card glass c"><span>🛠️</span><h3>طبق</h3><p>طبق مباشرة على منتجات وحملات حقيقية.</p></div>
-<div class="card glass c"><span>📈</span><h3>حسن</h3><p>حلل النتائج، صحح الأخطاء، وتعلم كيفاش تكبر النتائج.</p></div>
+<p class="sub">الفرق بين أنك تشوف دورة وأنك تدخل مجموعة بحصص مباشرة هو أنك ما كتبقاش بوحدك.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+<div class="glass c"><span>📚</span><h3>تعلم</h3><p>تعلم الاستراتيجيات بطريقة منظمة.</p></div>
+<div class="glass c"><span>🛠️</span><h3>طبق</h3><p>طبق مباشرة على منتجات وحملات حقيقية.</p></div>
+<div class="glass c"><span>📈</span><h3>حسن</h3><p>حلل النتائج، صحح الأخطاء، وتعلم كيفاش تكبر النتائج.</p></div>
 </div></div></section>
 
-<section><div class="wrap"><h2>شنو كيخليك Coaching مختلف؟</h2><br>
-<div class="pk" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))" id="why"></div></div></section>
-
-<section><div class="wrap"><div class="card glass hot" style="text-align:center;max-width:560px;margin:auto">
-<h2>علاش غير 5 مقاعد؟</h2>
-<p style="color:var(--mu)">حيت Coaching فيه مواكبة فردية، وبالتالي عدد المشاركين محدود باش نقدر نتابع تقدم كل شخص بشكل جدي.</p>
-<p style="margin-top:14px">متوفر: 5 مقاعد</p><div class="seat">5 / 5</div><br>
-<button class="btn" data-pick="coach">نحجز مقعدي</button></div></div></section>
+<section><div class="wrap"><h2>شنو غادي تلقى فالباقة؟</h2><br>
+<div class="grid" id="why"></div></div></section>
 
 <section><div class="wrap" style="max-width:720px"><h2>الأسئلة المتكررة</h2><br>
 <div id="faq"></div></div></section>
 
-<section><div class="wrap"><div class="card glass" style="text-align:center">
+<section><div class="wrap"><div class="glass" style="text-align:center;padding:30px 20px">
 <h2>واش واجد تبدا؟ 🚀</h2>
 <p class="sub">ما تبقاش غير كتقلب على المعلومات… بدا تتعلم، طبق، وحسن النتائج ديالك.</p>
-<button class="btn ghost" data-pick="pro">ابدأ بـ199 درهم</button>
-<button class="btn" data-pick="coach">احجز مقعدك 699 درهم</button>
-<button class="btn ghost" data-pick="solo">مواكبة فردية 7 أيام — 1,449 درهم</button></div></div></section>
+<button class="btn" data-pick="1">سجل دابا — 449 درهم</button></div></div></section>
 
 <footer><b>COD ACADEMY</b><p>تعلم. طبق. حسن. Scale.</p><p dir="ltr">WhatsApp: 0621820506</p><p>Copyright © 2026 COD Academy</p></footer>
-<div id="sticky"><button class="btn block" data-pick="coach">احجز مقعدك — 5 مقاعد فقط 🔥</button></div>
+<div id="sticky"><button class="btn block" data-pick="1">سجل دابا — 449 درهم 🔥</button></div>
 </div>
 
 <div id="modal" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="mb">
@@ -197,14 +140,11 @@ footer b{color:var(--ac);letter-spacing:2px}
 <script>
 (function(){
 var NUM="212621820506";
-var PK={pro:{n:"COD Academy PRO",p:"199 درهم / الشهر",x:""},
-solo:{n:"مواكبة فردية لمدة 7 أيام",p:"1,449 درهم",x:"\n\nبغيت نعرف واش المقعد متوفر حالياً."},
-coach:{n:"COD Academy COACHING",p:"699 درهم / الشهر",x:"\n\nبغيت نحجز مقعد من المقاعد الخمسة."}};
-var F={solo:["مواكبة فردية لمدة 7 أيام","جلسة فردية 1:1","تحديد المسار الصحيح من البداية","خطة عمل مخصصة حسب وضعك","توجيه خطوة بخطوة","الهدف: الوصول لأول طلبات في أقصر وقت ممكن"],pro:["دخول للمجموعة الخاصة لمدة شهر","كل شهر منتجات مربحة يتم اقتراحها للمجموعة","تحليل فرص المنتجات","فيديوهات جاهزة للإعلانات","أفكار Creatives للإعلانات","تحديد الجمهور المستهدف بدقة","استراتيجيات إطلاق الحملات","مواكبة في الخاص","مساعدة في تحسين النتائج","محتوى وتحديثات جديدة باستمرار"],
-coach:["جوج حصص مباشرة كل أسبوع عبر Google Meet","البداية من الصفر","تعلم اختيار المنتجات","البحث عن منتجات قليلة المنافسة","تحليل السوق والطلب","اختيار المنتجات ذات فرص الربح","بناء العرض التسويقي","إنشاء الإعلانات","صناعة Creatives فعالة","تحديد الجمهور المستهدف","إطلاق أول الحملات","تحليل CPM / CTR / CPC / CPA","تحسين الحملات","تعلم Scaling","تعلم كيفاش تزيد الميزانية بشكل تدريجي بناءً على النتائج","تعلم الانتقال من حملات صغيرة إلى حملات أكبر","استراتيجيات للوصول إلى أكثر من 10 طلبيات يومياً عندما تسمح النتائج والمنتج والسوق والميزانية","تعلم متى تزيد الميزانية ومتى توقف الحملة","مواكبة فردية","تصحيح الأخطاء","أسئلة وأجوبة مباشرة","متابعة تقدم كل متدرب"]};
+var P={n:"COD Academy — الباقة الكاملة (المجموعة الجديدة على واتساب)",p:"449 درهم / الشهر"};
+var F=["دخول للمجموعة الجديدة على واتساب","حصتين مباشرتين كل أسبوع عبر Google Meet","البداية من الصفر، خطوة بخطوة","منتجات مقترحة كل شهر مع تحليل فرص المنتجات","تحليل السوق والطلب","بناء العرض التسويقي","فيديوهات جاهزة للإعلانات وأفكار Creatives","تحديد الجمهور المستهدف بدقة","استراتيجيات إطلاق الحملات","تحليل CPM / CTR / CPC / CPA","تحسين الحملات وتصحيح الأخطاء","تعلم Scaling وزيادة الميزانية تدريجياً بناءً على النتائج","أسئلة وأجوبة مباشرة ومواكبة ومساعدة مستمرة","محتوى وتحديثات جديدة باستمرار"];
 var STEPS=["اختيار المنتج","تحليل السوق","بناء العرض","إنشاء المحتوى","إطلاق الإعلانات","تحليل النتائج","تحسين الحملات","Scaling","بناء نظام مستمر للطلبات"];
-var WHY=[["🔥","منتجات جديدة"],["📈","Scaling"],["🎯","استهداف دقيق"],["📊","تحليل البيانات"],["👤","مواكبة فردية"],["🎥","Google Meet"],["💬","دعم مباشر"],["🚀","تطبيق عملي"]];
-var FAQ=[["واش خاصني تكون عندي تجربة؟","لا، Coaching مصمم حتى للمبتدئين اللي باغين يبداو من الصفر."],["واش المنتجات مضمونة الربح؟","ما كاين حتى منتج مضمون الربح 100%. كنركزو على تحليل السوق واختيار المنتجات وتقليل المخاطرة وتحسين طريقة التنفيذ."],["واش غادي نتعلم الإعلانات؟","نعم، غادي تتعلم إنشاء الحملات، اختيار الجمهور، قراءة النتائج، تحسين الحملات وScaling."],["واش غادي نتعلم كيفاش نوصل لأكثر من 10 طلبيات يومياً؟","غادي تتعلم استراتيجيات الـScaling وتحسين الحملات بهدف الوصول لأكثر من 10 طلبيات يومياً عندما تسمح النتائج والمنتج والسوق والميزانية."],["واش المواكبة فردية؟","نعم، خصوصاً في باقة Coaching، مع متابعة وتوجيه حسب تقدم كل شخص."],["كيفاش نسجل؟","اختار الباقة المناسبة ليك، دخل اسمك، ومن بعد غادي يتم تحويلك مباشرة إلى WhatsApp لإتمام التسجيل."]];
+var WHY=[["💬","مجموعة واتساب خاصة"],["🎥","حصتين فالأسبوع"],["🔥","منتجات جديدة"],["🎯","استهداف دقيق"],["📊","تحليل البيانات"],["📈","Scaling"],["🤝","دعم ومواكبة"],["🚀","تطبيق عملي"]];
+var FAQ=[["واش خاصني تكون عندي تجربة؟","لا، الباقة مصممة حتى للمبتدئين اللي باغين يبداو من الصفر."],["شحال عدد الحصص؟","حصتين مباشرتين كل أسبوع عبر Google Meet."],["واش المنتجات مضمونة الربح؟","ما كاين حتى منتج مضمون الربح 100%. كنركزو على تحليل السوق واختيار المنتجات وتقليل المخاطرة وتحسين طريقة التنفيذ."],["واش غادي نتعلم الإعلانات؟","نعم، غادي تتعلم إنشاء الحملات، اختيار الجمهور، قراءة النتائج، تحسين الحملات وScaling."],["واش غادي نتعلم كيفاش نوصل لأكثر من 10 طلبيات يومياً؟","غادي تتعلم استراتيجيات الـScaling وتحسين الحملات بهدف الوصول لأكثر من 10 طلبيات يومياً عندما تسمح النتائج والمنتج والسوق والميزانية."],["كيفاش نسجل؟","دخل اسمك، ومن بعد غادي يتم تحويلك مباشرة إلى WhatsApp لإتمام التسجيل والدخول للمجموعة."]];
 var Q2=["مازال مبتدئ وما عارف منين نبدأ","جربت ولكن النتائج ضعيفة","عندي تجربة وبغيت نطور النتائج","عندي مشروع وبغيت نزيد المبيعات"];
 var Q3=["نبدا من الصفر","نوصل لأول مبيعات","نلقى منتجات مربحة","نتعلم الإعلانات","نتعلم Scaling ونكبر النتائج","نبني مشروع تجارة إلكترونية حقيقي"];
 var S={name:"",a2:"",a3:"",step:1};
@@ -236,9 +176,9 @@ function done(){
  window.scrollTo(0,0);io();
 }
 function fill(){
- document.querySelectorAll("[data-f]").forEach(function(u){u.innerHTML=F[u.dataset.f].map(function(t){return "<li>"+t+"</li>"}).join("")});
+ $("#ft").innerHTML=F.map(function(t){return "<li>"+t+"</li>"}).join("");
  $("#tl").innerHTML=STEPS.map(function(t,i){return '<div class="st glass"><b>0'+(i+1)+'</b><span>'+t+'</span></div>'}).join("");
- $("#why").innerHTML=WHY.map(function(w){return '<div class="card glass c"><span>'+w[0]+'</span><h3 style="font-size:1rem">'+w[1]+'</h3></div>'}).join("");
+ $("#why").innerHTML=WHY.map(function(w){return '<div class="glass c"><span>'+w[0]+'</span><h3 style="font-size:1rem">'+w[1]+'</h3></div>'}).join("");
  $("#faq").innerHTML=FAQ.map(function(q){return '<details class="glass"><summary>'+q[0]+'</summary><p>'+q[1]+'</p></details>'}).join("");
 }
 function io(){
@@ -247,18 +187,17 @@ function io(){
  var ob=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");ob.unobserve(e.target)}})},{threshold:.2});
  els.forEach(function(e,i){e.style.transitionDelay=(i%3)*80+"ms";ob.observe(e)});
 }
-function open(k){
- var p=PK[k];
- $("#mn").textContent=S.name;$("#mp").textContent=p.n;$("#mr").textContent=p.p;
- var msg="السلام عليكم 👋\nأنا "+S.name+"\n\nبغيت نسجل فـ COD Academy.\n\nالباقة اللي اخترت:\n"+p.n+"\n\nالثمن:\n"+p.p+p.x+"\n\nبغيت نعرف الخطوات التالية للتسجيل.";
+function openM(){
+ $("#mn").textContent=S.name;$("#mp").textContent=P.n;$("#mr").textContent=P.p;
+ var msg="السلام عليكم 👋\nأنا "+S.name+"\n\nبغيت نسجل فـ COD Academy وندخل للمجموعة الجديدة على واتساب.\n\nالباقة:\n"+P.n+"\n\nالثمن:\n"+P.p+"\n\nبغيت نعرف الخطوات التالية للتسجيل.";
  $("#wa").href="https://wa.me/"+NUM+"?text="+encodeURIComponent(msg);
  $("#modal").classList.add("open");$("#wa").focus();
 }
-function close(){$("#modal").classList.remove("open")}
-document.addEventListener("click",function(e){var t=e.target.closest("[data-pick]");if(t)open(t.dataset.pick)});
-$("#mc").onclick=close;
-$("#modal").onclick=function(e){if(e.target.id==="modal")close()};
-document.addEventListener("keydown",function(e){if(e.key==="Escape")close()});
+function closeM(){$("#modal").classList.remove("open")}
+document.addEventListener("click",function(e){if(e.target.closest("[data-pick]"))openM()});
+$("#mc").onclick=closeM;
+$("#modal").onclick=function(e){if(e.target.id==="modal")closeM()};
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeM()});
 fill();render();
 })();
 </script>
